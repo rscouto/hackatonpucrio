@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
 
   // Perform the login actieon when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    console.log('Chamar API de Login', $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -33,7 +33,18 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SearchCtrl', function($scope, $http, $window, $location, $rootScope) {
+.controller('LoadingCtrl', function($rootScope, $ionicLoading) {
+  $rootScope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $rootScope.hide = function(){
+    $ionicLoading.hide();
+  };
+})
+
+.controller('SearchCtrl', function($scope, $http, $window, $location, $rootScope, $ionicLoading) {
   $scope.searchTerm = { value : ""};
   $scope.currentLocation ={ latitude:"", longitude:""};
   //$rootScope.searchResult; = {name:"", distance:"", durartion:"", address:"", price:"", mapUrlImg: ""};
@@ -66,6 +77,9 @@ angular.module('starter.controllers', [])
     executePost = function(postData){
         // Simple POST request example (passing data) :
         console.log("Post Data: " + postData);
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
         $http.post('http://roadtripgoapi2.jit.su/gas/get_gas_station', postData).
             success(function(data, status, headers, config)
             {    
@@ -83,7 +97,7 @@ angular.module('starter.controllers', [])
                     flag: _data.flag,
                     type: "Gasolina"
                 };
-          
+                $ionicLoading.hide();
               //TODO: Change de view
               changeView("app/search-result");
             }).
