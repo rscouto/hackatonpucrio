@@ -1,0 +1,53 @@
+<ion-view title="Preferências">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header item-body">
+    <div class="list">
+      <div class="item item-divider">
+          Suas Informações
+      </div>
+      <label class="item item-input">
+        <input type="text" placeholder="Nome" ng-model="" />
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Sobrenome" ng-model="" />
+      </label>
+       <div class="item item-divider">
+          Prefências de Pesquisa
+      </div>
+      <label class="item item-radio">
+        <input type="radio" name="group" />
+            <div class="item-content">
+              Mais Próximo
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+      </label>
+       <label class="item item-radio">
+            <input type="radio" name="group">
+            <div class="item-content">
+              Mais Barato
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+      </label>
+       <label class="item item-radio">
+            <input type="radio" name="group">
+            <div class="item-content">
+              Mais Rápido
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+      </label>
+      <div class="item item-divider">
+          Alcance <span class="badge badge-assertive">Km</span>
+      </div>
+      <div class="item range">
+            <i class="icon ion-minus"></i>
+                <input type="range" name="radius" min="0" max="100" value="10">
+            <i class="icon ion-plus"></i>
+      </div>
+    </div>
+     <button class="button button-positive">
+        Enviar
+    </button>
+    </ion-content>
+</ion-view>
