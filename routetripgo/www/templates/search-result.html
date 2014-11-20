@@ -1,0 +1,28 @@
+<ion-view title="Posto">
+  <ion-content class="has-header">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/Shell_Logo.png">
+        <h2>{{ searchResult.name }}</h2>
+        <p>R$ {{ searchResult.price }} &ndash; {{ searchResult.type }}</p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" src="{{searchResult.mapUrlImg}}">
+        <p>
+            {{ searchResult.address }}
+        </p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-ios7-time"></i>
+            {{ searchResult.duration }}
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-ios7-information-outline"></i>
+            {{ searchResult.distance }}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
